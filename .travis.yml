@@ -2,6 +2,9 @@ sudo: required
 services:
     - docker
 before_install:
+    - echo "BEFORE INSTALL START"
+    - gem install bundler
+    - echo "BEFORE INSTALL END"
     - docker build -t uppalavijay/frountend:latest -f Dockerfile.dev .
 script:
     - docker run uppalavijay/frountend npm run test -- --coverage
